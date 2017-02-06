@@ -14,6 +14,13 @@ Live class pet for Hack Reactor.
 1. [Installing Dependencies](#Setup)
 
 ## Usage
+To see pet, visit:
+
+
+```
+localhost:3000
+```
+
 
 Adjust live polling:
 
