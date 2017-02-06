@@ -3,9 +3,9 @@ Live class pet for Hack Reactor.
 
 ## Team
 
-  - __Product Owner__: Emm
-  - __Scrum Master__: Lisa
-  - __Development Team Members__: Don, Lisa, Haris, Emm
+  - __Product Owner__: [Emmeline Lan](https://github.com/bloodymushroom)
+  - __Scrum Master__: [Lisa Nam](https://github.com/lisanam)
+  - __Development Team Members__: [Don Nguyen](https://github.com/nguyendkim), [Lisa Nam](https://github.com/lisanam), [Emmeline Lan](https://github.com/bloodymushroom), [Haris Muhammad](https://github.com/harismh)
 
 ## Table of Contents
 
