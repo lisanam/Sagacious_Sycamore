@@ -1,6 +1,8 @@
 # HRGotchi
 Live class pet for Hack Reactor.
 
+<img src="./examples/hrgotchi_desktop.png">
+
 ## Team
 
   - __Product Owner__: [Emmeline Lan](https://github.com/bloodymushroom)
