@@ -35,8 +35,8 @@ var urls = {
 module.exports = {
   poll: function() {
     Pet.findOne({}).then(function(pet) {  
-    var name = pet.name;
-    var level = pet.level;    
+    var name = pet.name || 'HRGotchi';
+    var level = pet.level || 1;    
       switch (pet.status) {
         case 'coding':
           pet.experience++;
