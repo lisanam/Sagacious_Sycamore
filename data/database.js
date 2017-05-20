@@ -1,7 +1,9 @@
 var Sequelize = require('sequelize');
-
 // NOTE: create 'hrgotchi' database before running
-var db = new Sequelize('hrgotchi', 'root', '', {
+var user = process.env.DB_USER || 'root';
+var pass = process.env.DB_PASS || '';
+
+var db = new Sequelize('hrgotchi', user, pass, {
   host: 'localhost',
   dialect: 'mysql',
   logging: false
