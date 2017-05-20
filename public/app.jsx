@@ -185,3 +185,4 @@ class App extends React.Component {
 }
 
 window.App = App;
+ReactDOM.render(<App />, document.getElementById('app'));
