@@ -23,7 +23,7 @@ class NavigationBar extends React.Component {
     return (
       <div>
         <nav className="navigation navbar navbar-dark bg-primary">
-          <span className="navbar-brand">Welcome to HRGotchi, {'Lisa'}!</span>
+          <span className="navbar-brand">Welcome to HRGotchi, {'Guest'}!</span>
         </nav>
       </div>
     )
