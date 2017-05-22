@@ -28,7 +28,7 @@ class PetCommand extends React.Component {
       console.log(status)
       var Icons = needed.map((command, ind) => {
         return <img key={ind}
-          className={this.props.disabled && command !== this.props.status ? 'command-none' : 'command'}
+          className={this.props.disabled && command !== this.props.status ? 'command command-none' : 'command'}
           src={command === this.props.status ? secondIcons[command] : firstIcons[command]}
           onClick={this.props.disabled ? ()=> {} : () => {this.props.executeCommand(command)}}/>
       })

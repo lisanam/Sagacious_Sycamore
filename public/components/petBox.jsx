@@ -32,35 +32,35 @@ var Petbox = (props) => {
             <div className='row'>
               <b>Health:</b> {props.pet.phys}
               <div className='progress'>
-                  <div className="progress-bar" role="progressbar" style={bars['healthBar']}>
+                  <div className="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style={bars['healthBar']}>
                   </div>
               </div>
             </div>
             <div className='row'>
               <b>Mood:</b> {props.pet.mood}
               <div className='progress'>
-                  <div className="progress-bar" role="progressbar" style={bars['loveBar']}>
+                  <div className="progress-bar progress-bar-striped active" role="progressbar" style={bars['loveBar']}>
                   </div>
               </div>
             </div>
             <div className='row'>
               <b>Energy:</b>
               <div className='progress'>
-                  <div className="progress-bar" role="progressbar" style={bars['energyBar']}>
+                  <div className="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style={bars['energyBar']}>
                   </div>
               </div>
             </div>
             <div className='row'>
               <b>Level:</b> {props.pet.level} / 3
               <div className='progress'>
-                  <div className="progress-bar" role="progressbar" style={bars['levelBar']}>
+                  <div className="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" style={bars['levelBar']}>
                   </div>
               </div>
             </div>
             <div className='row'>
               <b>Experience:</b>
               <div className='progress'>
-                  <div className="progress-bar" role="progressbar" style={bars['experienceBar']}>
+                  <div className="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style={bars['experienceBar']}>
                   </div>
               </div>
             </div>
