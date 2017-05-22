@@ -36,7 +36,8 @@ module.exports = {
   poll: function() {
     Pet.findOne({}).then(function(pet) {  
     var name = pet.name;
-    var level = pet.level;    
+    var level = pet.level;  
+    pet.disabled = false;  
       switch (pet.status) {
         case 'coding':
           pet.experience++;

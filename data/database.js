@@ -27,6 +27,7 @@ var Pet = db.define('Pets', {
   mood: {type: Sequelize.STRING, defaultValue: 'normal'},
   phys: {type: Sequelize.STRING, defaultValue: 'normal'},
   img: {type: Sequelize.STRING, defaultValue: 'http://i.imgur.com/RzBy3Vw.gif'},
+  disabled: {type: Sequelize.BOOLEAN, defaultValue: false},
 }, {timestamps: false});
 
 //log schema

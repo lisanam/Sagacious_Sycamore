@@ -24,30 +24,20 @@ var Petbox = (props) => {
       <div className='pet-image-container col-md-6 col-xs-6'>
         <img className="pet-image" src={props.pet.img}></img>
         <div>
-          <StatusMessage logs={props.pet.logs} />
+          <StatusMessage petState={statusProps} />
         </div>
       </div>
       <div className='stats col-md-6 col-xs-6'>
         <div className='stats container'>
-          <h1>Stats</h1>
             <div className='row'>
-              <b>Name:</b> {props.pet.name}
-            </div>
-            <div className='row'>
-              <b>Mood:</b> {props.pet.mood}
-            </div>
-            <div className='row'>
-              <b>Phys:</b> {props.pet.phys}
-            </div>
-            <div className='row'>
-              <b>Health:</b>
+              <b>Health:</b> {props.pet.phys}
               <div className='progress'>
                   <div className="progress-bar" role="progressbar" style={bars['healthBar']}>
                   </div>
               </div>
             </div>
             <div className='row'>
-              <b>Love:</b>
+              <b>Mood:</b> {props.pet.mood}
               <div className='progress'>
                   <div className="progress-bar" role="progressbar" style={bars['loveBar']}>
                   </div>

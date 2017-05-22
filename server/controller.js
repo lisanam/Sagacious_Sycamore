@@ -48,8 +48,8 @@ module.exports = {
       .then(function(pet) {
         if (pet) {
           var newStatus = req.body.status;
-          pet.status = newStatus; 
-          console.log('url', urls['lvl'+ pet.level][newStatus]);
+          pet.status = newStatus;
+          pet.disabled = true; 
           pet.img = urls['lvl'+ pet.level][newStatus];
           pet.save().then(function(data) {
             console.log('updated status');

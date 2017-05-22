@@ -13,12 +13,8 @@ class App extends React.Component {
       feed: 0,
       love: 0,
       showNewName: false,
-      cmdImg: {
-        food:'../assets/food1.png',
-        sleep:'../assets/sleep1.png',
-        love:'../assets/love1.png',
-        code:'../assets/code1.png'
-      },
+      displayLog: false,
+      disabled: false,
       logs: []
     }
 
@@ -55,9 +51,16 @@ class App extends React.Component {
             status: data.status,
             love: data.love,
             showNewName: false,
-            newPetName: ''
+            newPetName: '',
+            disabled: data.disabled
           });
         });
+    });
+  }
+
+  showLog() {
+    this.setState({
+      displayLog: !this.state.displayLog
     });
   }
 
@@ -77,6 +80,9 @@ class App extends React.Component {
 
   setStatus(status) {
     var that = this;
+    this.setState({
+      disabled: true
+    });
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3000/api/pet',
@@ -118,44 +124,9 @@ class App extends React.Component {
       that.getCurrent();
     })
   }
-
-
-  changeCommandIcon (command) {
-    if (command === 'eating') {
-      this.setState({cmdImg: {
-          food:'../assets/food2.png',
-          sleep:'../assets/sleep1.png',
-          love:'../assets/love1.png',
-          code:'../assets/code1.png'
-        }})
-        ;
-    } else if (command === 'sleeping') {
-      this.setState({cmdImg: {
-          food:'../assets/food1.png',
-          sleep:'../assets/sleep2.png',
-          love:'../assets/love1.png',
-          code:'../assets/code1.png'
-        }});
-    } else if (command === 'coding') {
-      this.setState({cmdImg: {
-          food:'../assets/food1.png',
-          sleep:'../assets/sleep1.png',
-          love:'../assets/love1.png',
-          code:'../assets/code2.png'
-        }});
-    } else if (command === 'playing') {
-      this.setState({cmdImg: {
-          food:'../assets/food1.png',
-          sleep:'../assets/sleep1.png',
-          love:'../assets/love2.png',
-          code:'../assets/code1.png'
-        }});
-    }
-  }
   
   executeCommand(command){
-    this.changeCommandIcon(command);
-    this.setStatus(command)
+    this.setStatus(command);
     this.getCurrent();
   }
 
@@ -171,13 +142,18 @@ class App extends React.Component {
             <div>
               <Petbox pet={this.state}/>
             </div>
-            <h3>Actions</h3>
             <div className='PetCommand'>{
               this.state.status !== 'dead' ? (<div>
-                <PetCommand cmdImg={this.state.cmdImg} executeCommand={this.executeCommand.bind(this)} />
+                <PetCommand 
+                  executeCommand={this.executeCommand.bind(this)}
+                  displayLog={this.state.displayLog} showLog={this.showLog.bind(this)} 
+                  status={this.state.status} disabled={this.state.disabled}/>
               </div>) : <Restart showNameInput={this.showNameInput.bind(this)} showNewName={this.state.showNewName} getInput={this.getInput.bind(this)} newPet={this.newPet.bind(this)}></Restart>
             }</div>
           </div>
+          <div>{
+            this.state.displayLog ?  <Logs logs={this.state.logs}/>: <div></div>
+          }</div>
         </div>
       </div>
     )
