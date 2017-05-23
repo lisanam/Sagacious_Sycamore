@@ -175,7 +175,7 @@ class App extends React.Component {
             </div>
             <div class="modal-body">
               <p>HRGotchi is able to eat, sleep, play and code. 
-              Please check every 3 minute or else HRGotchi will get lonely.
+              Please check every minute or else HRGotchi will get lonely.
               If you fail to properly meet HRGotchi’s needs, 
               HRGotchi will run away, get spoiled, or die
               HRGotchi also can gain experience and level up by coding. 
