@@ -1,3 +1,5 @@
+var Modal = window.ReactModal
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -13,7 +15,9 @@ class App extends React.Component {
       feed: 0,
       love: 0,
       showNewName: false,
+      displayStatusMessage: true,
       displayLog: false,
+      displayInfo: false,
       disabled: false,
       logs: []
     }
@@ -28,8 +32,15 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    Modal.setAppElement('body');
     this.getCurrent();
     this.getLog();
+  }
+
+  switch(state){
+    var newState = {}
+    newState[state] = !this.state[state]
+    this.setState(newState);
   }
 
   getCurrent() {
@@ -55,12 +66,6 @@ class App extends React.Component {
             disabled: data.disabled
           });
         });
-    });
-  }
-
-  showLog() {
-    this.setState({
-      displayLog: !this.state.displayLog
     });
   }
 
@@ -103,13 +108,9 @@ class App extends React.Component {
     this.setState(obj);
   }
 
-  showNameInput(){
-    this.setState({
-      showNewName: !this.showNewName
-    });
-  }
 
   newPet(e) {
+    console.log('new Pet Name', this.state.newPetName)
     e.preventDefault();
     
     var that = this;
@@ -138,23 +139,54 @@ class App extends React.Component {
         </div>
         <div className='row'>
           <div className='col-md-12 col-xs-12'>
-            <h3>{this.state.name} is currently <span className='status'>{this.state.status}</span>!</h3>
+            <h3 className='status'>{this.state.name} is currently  
+              <span className='status status-accent'> {this.state.status}</span>!</h3>
             <div>
-              <Petbox pet={this.state}/>
+              <Petbox pet={this.state} switch={this.switch.bind(this)}/>
             </div>
             <div className='PetCommand'>{
               this.state.status !== 'dead' ? (<div>
                 <PetCommand 
                   executeCommand={this.executeCommand.bind(this)}
-                  displayLog={this.state.displayLog} showLog={this.showLog.bind(this)} 
+                  displayLog={this.state.displayLog}
+                  displayInfo={this.state.displayInfo}
+                  switch={this.switch.bind(this)} 
                   status={this.state.status} disabled={this.state.disabled}/>
-              </div>) : <Restart showNameInput={this.showNameInput.bind(this)} showNewName={this.state.showNewName} getInput={this.getInput.bind(this)} newPet={this.newPet.bind(this)}></Restart>
+              </div>) : <Restart switch={this.switch.bind(this)} showNewName={this.state.showNewName} getInput={this.getInput.bind(this)} newPet={this.newPet.bind(this)}></Restart>
             }</div>
           </div>
           <div>{
-            this.state.displayLog ?  <Logs logs={this.state.logs}/>: <div></div>
+            this.state.displayLog ?  
+              <Logs logs={this.state.logs} switch={this.switch.bind(this)}/>: <div></div>
           }</div>
         </div>
+         <Modal
+          className='modal-info'
+          isOpen={this.state.displayInfo}
+          onAfterOpen={() => {}}
+          onRequestClose={()=> {this.switch('displayInfo')}}
+          closeTimeoutMS={1}
+          contentLabel="Modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" className="close modal-close pull-right" data-dismiss="modal" 
+              onClick={()=> {this.switch('displayInfo')}}>&times;</button>
+              <h3 class="modal-title">Welcome to HRGotchi</h3>
+            </div>
+            <div class="modal-body">
+              <p>HRGotchi is able to eat, sleep, play and code. 
+              Please check every minute or else HRGotchi will get lonely.
+              If you fail to properly meet HRGotchi’s needs, 
+              HRGotchi will run away, get spoiled, or die
+              HRGotchi also can gain experience and level up by coding. 
+              Find out what HRGotchi can become!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" className="btn btn-default pull-right" data-dismiss="modal"
+              onClick={()=> {this.switch('displayInfo')}}>Close</button>
+            </div>
+          </div>
+        </Modal>
       </div>
     )
   }

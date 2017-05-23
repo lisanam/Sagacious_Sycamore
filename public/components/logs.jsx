@@ -3,10 +3,12 @@ console.log(Modal)
 
 var Logs = function(props) {
   return (
-    <div>
+    <div className="log">
+      <button type="button" className="close close-log pull-right"
+        onClick={()=> {props.switch('displayLog')}}>&times;</button>
       <br></br>
-      <div className="status-message">
-      {props.logs.slice().map(function(log, index) { 
+      <div>
+      {props.logs.map(function(log, index) { 
         return (
           <span key={index} class="underscore">
           { log.action === 'need love' ? 
@@ -15,7 +17,7 @@ var Logs = function(props) {
           <br></br>
           </span> 
           )
-      }) }
+      })}
       </div>
     </div>
     )

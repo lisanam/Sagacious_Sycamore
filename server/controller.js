@@ -76,13 +76,12 @@ module.exports = {
     var petName = req.body.name;
     Log.findAll({})
       .then(function(queries) {
-        queries.length > 15 ? queries=queries.slice(queries.length - 15): null;
         var logs = queries.map(function(query) {
           query.dataValues.createdAt = moment(query.dataValues.createdAt).fromNow();
           return query.dataValues
         })
         res.statusCode = 200;
-        res.json(logs.reverse());
+        res.json(logs);
       })
   },
   postLog: function(name, action) {
