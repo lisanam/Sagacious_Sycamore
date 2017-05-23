@@ -19,21 +19,30 @@ var logImg = {
   false: '../../assets/log1.png'
 };
 
+var infoImg = {
+  true: '../../assets/info2.png',
+  false: '../../assets/info1.png'
+};
+
 class PetCommand extends React.Component {
     constructor(props){
       super(props);
     }
 
     render() {
-      console.log(status)
       var Icons = needed.map((command, ind) => {
         return <img key={ind}
-          className={this.props.disabled && command !== this.props.status ? 'command command-none' : 'command'}
+          className={this.props.disabled && command !== this.props.status ? 'col-md-2 command command-none' : 'col-md-2 command'}
           src={command === this.props.status ? secondIcons[command] : firstIcons[command]}
           onClick={this.props.disabled ? ()=> {} : () => {this.props.executeCommand(command)}}/>
       })
-      Icons.push(<img className='command' src={logImg[this.props.displayLog]} 
-            onClick={() => {this.props.showLog()}}/>)
+
+      Icons.push(<img className='col-md-2 command' src={logImg[this.props.displayLog]} 
+          onClick={() => {this.props.switch('displayLog')}}/>)
+      Icons.push(<img className='col-md-2 command' src={infoImg[this.props.displayInfo]} 
+          onClick={() => {this.props.switch('displayInfo')}}/>)
+
+
       return (
         <div className="pet-commandbar">{Icons}</div> 
       );
