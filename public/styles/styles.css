@@ -236,19 +236,18 @@ p {
 
 .log {
 	position: absolute;
+	width: 810px;
 	height: 445px;
 	border-color: black;
 	border-radius: 15px;
 	font-family: monospace;
 	font-size: large;
 	text-align: left;
-	width: 57.5%;
 	margin: 0 auto;
-	margin-left: -1%;
+	margin-left: -5px;
 	color: #3FC380;
 	background-color: #22313F;
   overflow: auto;
-	width: 57.5%;
 	transition-delay: 3s;
 	padding: 15px;
 	padding-left: 25px;
