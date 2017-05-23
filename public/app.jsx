@@ -46,7 +46,7 @@ class App extends React.Component {
   getCurrent() {
     console.log('Fetching pet status...');
     var that = this;
-    fetch('http://localhost:3000/api/pet', {method: 'GET'})
+    fetch('/api/pet', {method: 'GET'})
       .then(function(parse) {
       parse.json()
         .then(function (data) {
@@ -72,7 +72,7 @@ class App extends React.Component {
   getLog() {
     console.log('Fetching log messages...');
     var that = this;
-    fetch('http://localhost:3000/log', {method: 'GET'})
+    fetch('/log', {method: 'GET'})
       .then(function(parse) {
         parse.json()
         .then(function (data) {
@@ -90,7 +90,7 @@ class App extends React.Component {
     });
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/api/pet',
+      url: '/api/pet',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       data: {status: status}
     })
@@ -116,7 +116,7 @@ class App extends React.Component {
     var that = this;
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3000/api/newPet',
+      url: '/api/newPet',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
       data: {name: this.state.newPetName}
     })
