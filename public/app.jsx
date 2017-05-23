@@ -167,7 +167,7 @@ class App extends React.Component {
           onRequestClose={()=> {this.switch('displayInfo')}}
           closeTimeoutMS={1}
           contentLabel="Modal">
-          <div class="modal-content">
+          <div class="modal-content col-md-4">
             <div class="modal-header">
               <button type="button" className="close modal-close pull-right" data-dismiss="modal" 
               onClick={()=> {this.switch('displayInfo')}}>&times;</button>

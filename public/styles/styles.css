@@ -50,14 +50,13 @@ p {
 
 .pet-image-container {
 	text-align: center;
-	margin-left: -10px;
 }
 
 .petView {
 	padding: 20px;
 	text-align: left;
 	width: 800px;
-	margin-left: auto;
+	margin-left: -6%;
 	margin-right: auto;
 	vertical-align: middle;
 }
@@ -114,26 +113,26 @@ p {
 .icon-show {
 	position: absolute;
 	height: 50px;
-	left: 54%;
+	left: 50%;
 	top: 395px;
 }
 
 .icon-hidden {
 	position: absolute;
 	height: 50px;
-	left: 58%;
+	left: 55%;
 	top: 385px;
 }
 
 .icon-show:hover {
 	height: 60px;
-	left: 53%;
+	left: 48%;
 	top: 382px;
 }
 
 .icon-hidden:hover {
 	height: 60px;
-	left: 57%;
+	left: 54%;
 	top: 380px;
 }
 
@@ -215,11 +214,11 @@ p {
 /*Modal*/
 
 .modal-info {
-	position: absolute;
+	position: relative;
 	top: 20%;
-	left: 20%;
-	right: 20%;
-	bottom: auto;
+	left: 25%;
+  width: 50%;
+	height: 250px;
 	padding: 18px;
 	background-color: rgba(255, 255, 255, 0.75);
 };
@@ -237,17 +236,19 @@ p {
 
 .log {
 	position: absolute;
-	height: 450px;
+	height: 445px;
 	border-color: black;
 	border-radius: 15px;
 	font-family: monospace;
 	font-size: large;
 	text-align: left;
+	width: 57.5%;
 	margin: 0 auto;
+	margin-left: -1%;
 	color: #3FC380;
 	background-color: #22313F;
   overflow: auto;
-	width: 78%;
+	width: 57.5%;
 	transition-delay: 3s;
 	padding: 15px;
 	padding-left: 25px;
