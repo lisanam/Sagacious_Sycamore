@@ -113,7 +113,7 @@ p {
 .icon-show {
 	position: absolute;
 	height: 50px;
-	left: 50%;
+	left: 51%;
 	top: 395px;
 }
 
@@ -126,7 +126,7 @@ p {
 
 .icon-show:hover {
 	height: 60px;
-	left: 48%;
+	left: 49%;
 	top: 382px;
 }
 
