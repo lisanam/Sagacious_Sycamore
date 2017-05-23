@@ -2,11 +2,11 @@
 
 var Restart = (props) => (
   <div className='row'>
-    <button className='restart' onClick={props.showNameInput}>Restart</button>
+    <button className='restart btn btn-default' onClick={() => {props.switch('showNewName')}}>Restart</button>
     <div>{
       props.showNewName ? (
         <form>
-          <input className='restart-petName' placeholder='Enter new pet name' onKeyUp={props.getInput}></input>
+          <input className='newPetName' placeholder='Enter new pet name' onKeyUp={props.getInput}></input>
           <button className='btn btn-primary' onClick={props.newPet}>Submit</button>
         </form>) : null
     }</div>
