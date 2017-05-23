@@ -64,7 +64,7 @@ app.get('/*', function(req, res) {
 });
 
 // Uncomment to poll database reguarly
-setInterval(poll, 6000000);
+setInterval(poll, 180000);
 
 app.listen(3000);
 console.log('Server listening on 3000...');
